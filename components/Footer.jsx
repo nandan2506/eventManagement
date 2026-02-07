@@ -25,7 +25,7 @@ export default function Footer() {
               </li>
               
               <li>
-                <Link href="/contact" className="hover:text-brand transition-colors">Gallery</Link>
+                <Link href="/gallery" className="hover:text-brand transition-colors">Gallery</Link>
               </li>
             </ul>
           </div>

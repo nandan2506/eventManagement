@@ -32,15 +32,7 @@ export default function Navbar() {
             <NavLink href="/" active={pathname === "/"}>
               Home
             </NavLink>
-            {/* <NavLink href="/events" active={pathname === "/events"}>
-              All Events
-            </NavLink>
-            <NavLink href="/about" active={pathname === "/about"}>
-              About Us
-            </NavLink>
-            <NavLink href="/contact" active={pathname === "/contact"}>
-              Contact
-            </NavLink> */}
+
             <NavLink href="/gallery" active={pathname === "/gallery"}>
               Gallery
             </NavLink>
