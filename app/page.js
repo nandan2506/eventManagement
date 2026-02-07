@@ -1,152 +1,129 @@
 // app/page.jsx
-"use client"; // <--- Required for Swiper animations
+"use client";
 
 import Link from "next/link";
 import { events } from '@/data/events';
-
-// 1. IMPORT SWIPER
-import { Swiper, SwiperSlide } from 'swiper/react';
-import { EffectCoverflow, Autoplay } from 'swiper/modules';
-
-// 2. IMPORT SWIPER STYLES
-import 'swiper/css';
-import 'swiper/css/effect-coverflow';
-import 'swiper/css/pagination';
+import VideoSec from "@/components/VideoSec";
+import AboutSec from "@/components/AboutSec";
+import VisionSec from "@/components/VisionSec";
+import ServicSec from "@/components/ServicSec";
+import StretigicSec from "@/components/StretigicSec";
+import TrustedSec from "@/components/TrustedSec";
+import BrandsSec from "@/components/BrandsSec";
+import ContactSec from "@/components/ContactSec";
+import Footer from "@/components/Footer";
 
 export default function Home() {
-
-  const galleryImages = [
-    "https://images.unsplash.com/photo-1493225255756-d9584f8606e9?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1516280440614-6697288d5d38?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1429962714451-bb934ecdc4ec?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1533174072545-e8d4aa97edf9?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1514525253440-b393452e8d26?auto=format&fit=crop&q=80&w=800",
-    "https://images.unsplash.com/photo-1470225620780-dba8ba36b745?auto=format&fit=crop&q=80&w=800",
-  ];
-
   return (
     <main className="min-h-screen bg-slate-50">
 
-      {/* Hero Section */}
-      <section className="bg-slate-900 py-20 px-6 text-center">
-        <h1 className="text-4xl md:text-6xl font-extrabold text-white mb-6">
-          Find Events <span className="text-brand">Near You</span>
-        </h1>
-        <p className="text-gray-400 mb-8 text-lg">
-          Book tickets for the hottest concerts, workshops, and meetups.
-        </p>
-      </section>
+      {/* 1. Hero Section - Updated to match Brand Navy */}
+      <section className="bg-[#002B5C] py-24 px-6 text-center relative overflow-hidden">
+        {/* Subtle background accent */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[800px] bg-brand/5 rounded-full blur-3xl pointer-events-none"></div>
 
-      {/* NEW: Infinite 3D Gallery Section */}
-      <section className="bg-black py-16 border-b border-gray-800 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
-          <span className="text-brand font-bold tracking-widest uppercase text-xs">Vibe Check</span>
-          <h2 className="text-3xl font-bold text-white mt-2">
-            Captured Moments
-          </h2>
-        </div>
-
-        {/* SWIPER COMPONENT */}
-        <div className="w-full max-w-6xl mx-auto px-4">
-          <style jsx global>{`
-            /* Custom CSS to handle the Blur Effect on non-active slides */
-            .swiper-slide {
-              transition: all 0.5s ease;
-              filter: blur(4px); /* Default state: blurred */
-              opacity: 0.5;
-              transform: scale(0.8);
-            }
-            .swiper-slide-active {
-              filter: blur(0px) !important; /* Active state: sharp */
-              opacity: 1 !important;
-              transform: scale(1) !important;
-              z-index: 10;
-            }
-          `}</style>
-
-          <Swiper
-            effect={'coverflow'}
-            grabCursor={true}
-            centeredSlides={true}
-            loop={true}
-            slidesPerView={'auto'}
-            autoplay={{
-              delay: 2500,
-              disableOnInteraction: false,
-            }}
-            coverflowEffect={{
-              rotate: 0, // No rotation, keeping it modern/flat
-              stretch: 0,
-              depth: 150, // Depth creates the 3D feel
-              modifier: 2.5,
-              slideShadows: false, // Disable default shadow to use our own blur logic
-            }}
-            modules={[EffectCoverflow, Autoplay]}
-            className="w-full py-10"
+        <div className="relative z-10 max-w-4xl mx-auto">
+          <h1 className="text-4xl md:text-7xl font-extrabold text-white mb-6 leading-tight">
+            Find Events <span className="text-brand">Near You</span>
+          </h1>
+          <p className="text-blue-100 mb-10 text-lg md:text-xl max-w-2xl mx-auto">
+            Book tickets for the hottest concerts, workshops, and meetups.
+            Experience the extraordinary.
+          </p>
+          <Link
+            href="/events"
+            className="inline-block bg-brand hover:bg-[#e0a340] text-[#002B5C] font-bold text-lg py-4 px-10 rounded-full transition-transform hover:scale-105 shadow-lg"
           >
-            {galleryImages.map((src, index) => (
-              <SwiperSlide
-                key={index}
-                className="!w-[300px] md:!w-[500px] !h-[300px] md:!h-[400px] relative rounded-2xl overflow-hidden border border-gray-800"
-              >
-                <img
-                  src={src}
-                  alt={`Gallery ${index}`}
-                  className="w-full h-full object-cover"
-                />
-
-                {/* Overlay only visible on the active/center slide (controlled by CSS parent) */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-6">
-                  <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                    <span className="text-brand font-bold text-lg">#EventLife</span>
-                    <p className="text-gray-300 text-sm mt-1">Live the moment</p>
-                  </div>
-                </div>
-              </SwiperSlide>
-            ))}
-          </Swiper>
+            Explore Now
+          </Link>
         </div>
       </section>
 
-      {/* Events Grid */}
-      <section className="p-8 max-w-7xl mx-auto">
-        <h2 className="text-3xl font-bold mb-8 text-slate-800 border-l-4 border-brand pl-4">
-          Upcoming Events
-        </h2>
+      {/* 2. Video Section */}
+      <VideoSec />
+
+      {/* 3. About Us Section - Split Layout */}
+      <AboutSec />
+
+      {/* 4. Vision & Mission Section */}
+      <VisionSec />
+
+      {/* 5. Core Service Pillars Section */}
+      <ServicSec />
+
+      {/* 6. Strategic Event Management Section */}
+      <StretigicSec />
+
+
+      {/* 7. Trusted by Industry Leaders Section */}
+      <TrustedSec />
+
+
+      {/* 8. Brand Association Section */}
+      <BrandsSec />
+
+
+      {/* 9. Contact Section */}
+      {/* <ContactSec /> */}
+
+      <Footer />
+
+      {/* 6. Events Grid */}
+      {/* <section className="py-24 px-6 max-w-7xl mx-auto">
+        <div className="flex justify-between items-end mb-12">
+          <div>
+            <span className="text-brand font-bold tracking-widest uppercase text-sm">Don't Miss Out</span>
+            <h2 className="text-4xl font-bold text-[#002B5C] mt-2">Upcoming Events</h2>
+          </div>
+          <Link href="/events" className="hidden md:inline-block text-[#002B5C] font-bold hover:text-brand transition-colors">
+            View All Events &rarr;
+          </Link>
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {events.map((event) => (
-            <div key={event.id} className="bg-white rounded-xl shadow-lg hover:shadow-xl transition-all duration-300 overflow-hidden group">
-              <div className="h-48 overflow-hidden relative">
+            <div key={event.id} className="bg-white rounded-2xl shadow-lg hover:shadow-2xl transition-all duration-300 overflow-hidden group border border-slate-100 flex flex-col h-full">
+
+              <div className="h-56 overflow-hidden relative">
                 <img
                   src={event.image}
                   alt={event.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
                 />
-                <div className="absolute top-4 right-4 bg-white/90 backdrop-blur-sm px-3 py-1 rounded-full text-xs font-bold shadow-sm">
-                  {event.price === 0 ? "FREE" : `₹${event.price}`}
+                <div className="absolute top-4 right-4 bg-white/95 backdrop-blur-md px-4 py-2 rounded-full text-xs font-bold shadow-sm text-[#002B5C]">
+                  {event.price === 0 ? "FREE ENTRY" : `₹${event.price}`}
                 </div>
               </div>
 
-              <div className="p-6">
-                <p className="text-brand font-bold text-xs tracking-wider uppercase mb-2">
-                  {event.date} • {event.location}
-                </p>
-                <h3 className="text-xl font-bold text-slate-900 mb-2 group-hover:text-brand transition-colors">
-                  {event.title}
-                </h3>
+              <div className="p-8 flex-1 flex flex-col">
+                <div className="mb-4">
+                  <p className="text-brand font-bold text-xs tracking-wider uppercase mb-2">
+                    {event.date} • {event.location}
+                  </p>
+                  <h3 className="text-2xl font-bold text-[#002B5C] mb-2 leading-tight group-hover:text-brand transition-colors">
+                    {event.title}
+                  </h3>
+                </div>
 
-                <Link
-                  href={`/events/${event.id}`}
-                  className="mt-4 inline-block w-full text-center bg-slate-900 hover:bg-brand hover:text-slate-900 text-white font-semibold py-3 rounded-lg transition-colors"
-                >
-                  View Details
-                </Link>
+                <div className="mt-auto">
+                  <Link
+                    href={`/events/${event.id}`}
+                    className="block w-full text-center bg-[#002B5C] hover:bg-brand hover:text-[#002B5C] text-white font-bold py-4 rounded-xl transition-colors"
+                  >
+                    View Details
+                  </Link>
+                </div>
               </div>
             </div>
           ))}
         </div>
-      </section>
+
+        <div className="mt-12 text-center md:hidden">
+          <Link href="/events" className="inline-block border-2 border-[#002B5C] text-[#002B5C] font-bold py-3 px-8 rounded-full hover:bg-[#002B5C] hover:text-white transition-colors">
+            View All Events
+          </Link>
+        </div>
+      </section> */}
     </main>
   );
 }

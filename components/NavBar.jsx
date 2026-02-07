@@ -18,7 +18,7 @@ export default function Navbar() {
           {/* Increased height slightly for the logo */}
           {/* LEFT: Logo Section */}
           <div className="flex-shrink-0 flex items-center cursor-pointer">
-            <Link href="/">
+            <Link href="/" active={pathname === "/"}>
               {/* The logo blends because the navbar is black */}
               <img
                 src="/logo.jpeg"
@@ -32,7 +32,7 @@ export default function Navbar() {
             <NavLink href="/" active={pathname === "/"}>
               Home
             </NavLink>
-            <NavLink href="/events" active={pathname === "/events"}>
+            {/* <NavLink href="/events" active={pathname === "/events"}>
               All Events
             </NavLink>
             <NavLink href="/about" active={pathname === "/about"}>
@@ -40,12 +40,15 @@ export default function Navbar() {
             </NavLink>
             <NavLink href="/contact" active={pathname === "/contact"}>
               Contact
+            </NavLink> */}
+            <NavLink href="/gallery" active={pathname === "/gallery"}>
+              Gallery
             </NavLink>
           </div>
           {/* RIGHT: Call to Action Button */}
           <div className="hidden md:flex items-center">
             <Link
-              href="/events"
+              href=""
               className="bg-brand hover:bg-brand-dark text-black font-extrabold py-3 px-8 rounded-lg transition-all transform hover:scale-105 shadow-[0_0_15px_rgba(255,189,93,0.3)]"
             >
               Get Tickets
@@ -99,14 +102,8 @@ export default function Navbar() {
             <MobileNavLink href="/" onClick={() => setIsOpen(false)}>
               Home
             </MobileNavLink>
-            <MobileNavLink href="/events" onClick={() => setIsOpen(false)}>
-              All Events
-            </MobileNavLink>
-            <MobileNavLink href="/about" onClick={() => setIsOpen(false)}>
-              About Us
-            </MobileNavLink>
-            <MobileNavLink href="/contact" onClick={() => setIsOpen(false)}>
-              Contact
+            <MobileNavLink href="/gallery" onClick={() => setIsOpen(false)}>
+              Gallery
             </MobileNavLink>
 
             <div className="pt-6">
