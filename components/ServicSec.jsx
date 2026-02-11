@@ -12,7 +12,7 @@ export default function ServicSec() {
           
           <div className="mb-12">
             <h2 className="text-5xl md:text-7xl font-bold text-[#002B5C] mb-6 leading-tight">
-              Our Core Service <br /> Pillars
+              Our Service
             </h2>
             <p className="text-[#002B5C]/80 text-lg max-w-xl font-medium">
               We provide a 360-degree approach to brand visibility and corporate engagement.

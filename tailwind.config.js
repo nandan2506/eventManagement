@@ -4,14 +4,14 @@ module.exports = {
     "./app/**/*.{js,jsx}",
     "./pages/**/*.{js,jsx}",
     "./components/**/*.{js,jsx}",
-    "./src/**/*.{js,jsx}", // Just in case you have a src folder
+    "./src/**/*.{js,jsx}", // Includes src if you use it
   ],
   theme: {
     extend: {
       colors: {
         brand: {
-          DEFAULT: '#ffbd5d', // Your Logo Color
-          dark: '#e0a340',    // Hover Color
+          DEFAULT: '#ffbd5d', // Your main logo color
+          dark: '#e0a340',    // Darker hover state
         },
       },
     },
