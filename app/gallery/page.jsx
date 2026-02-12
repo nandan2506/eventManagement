@@ -27,8 +27,6 @@ export default function GalleryPage() {
     "Experiential",
   ];
 
-  // Grid Data
- // Grid Data (30 Items)
   const galleryItems = [
     { id: 1, category: "Concerts", src: "/gallery/img1.jpg", title: "Summer Vibes Fest", year: "2025" },
     { id: 2, category: "Corporate", src: "/gallery/img2.jpg", title: "Tech Summit Keynote", year: "2024" },

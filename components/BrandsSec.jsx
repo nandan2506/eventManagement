@@ -1,16 +1,12 @@
 import React from 'react';
+import { brands } from '@/data/brands';
+
 
 // 1. Split the brands into 3 chunks for the 3 rows
-const brands = [
-  "Apple", "Sony", "Infinix", "Vivo", "Tecno",
-  "Levi's", "Benetton", "MG", "Volvo", "Hero",
-  "Harman", "JBL", "DLF", "Ingram", "Paytm",
-  "Innisfree", "NHRD", "Visit CA", "Panasonic", "WattPower", "Truflo"
-];
 
-const row1 = brands.slice(0, 7);
-const row2 = brands.slice(7, 14);
-const row3 = brands.slice(14);
+const row1 = brands.slice(0, 4);
+const row2 = brands.slice(0, 4);
+const row3 = brands.slice(0, 4);
 
 // 2. Helper Component for a single Marquee Row
 const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
@@ -19,19 +15,20 @@ const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
       {/* We duplicate the list ([...items, ...items, ...items]) to ensure 
          there is enough content to scroll infinitely without gaps.
       */}
-      <div 
+      <div
         className={`flex gap-6 py-4 w-max ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'} group-hover:[animation-play-state:paused]`}
         style={{ animationDuration: speed }}
       >
         {[...items, ...items, ...items, ...items].map((brand, index) => (
-          <div 
-            key={`${brand}-${index}`} 
+          <div
+            key={`${brand}-${index}`}
             className="w-48 h-24 flex-shrink-0 bg-white/5 border border-white/10 hover:border-brand/50 hover:bg-white/10 rounded-xl flex items-center justify-center transition-all duration-300"
           >
-             {/* PLACEHOLDER: Replace <span /> with <img /> when ready.
+            {/* PLACEHOLDER: Replace <span /> with <img /> when ready.
                 Example: <img src={`/logos/${brand}.png`} className="h-10 w-auto object-contain grayscale hover:grayscale-0" />
              */}
-            <span className="text-gray-400 font-bold text-xl">{brand}</span>
+            {/* <span className="text-gray-400 font-bold text-xl">{brand}</span> */}
+            <img src={`/logos/${brand}.png`} className="h-10 w-auto object-contain " />
           </div>
         ))}
       </div>
@@ -65,9 +62,9 @@ export default function BrandsSec() {
       `}</style>
 
       <section className="bg-black py-20 px-0 min-h-[600px] flex flex-col justify-center overflow-hidden">
-        
+
         <div className="w-full text-center">
-          
+
           {/* Title */}
           <div className="max-w-7xl mx-auto px-6">
             <h2 className="text-4xl md:text-6xl font-bold text-brand uppercase mb-16 tracking-wide">
@@ -77,7 +74,7 @@ export default function BrandsSec() {
 
           {/* Marquee Rows Container */}
           <div className="flex flex-col">
-            
+
             {/* ROW 1: Moves Left */}
             <MarqueeRow items={row1} direction="left" speed="40s" />
 
