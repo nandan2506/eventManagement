@@ -110,7 +110,7 @@ export default function Footer() {
                   </svg>
                 </span>
                 <a
-                  href="mailto:support@eventeam.com"
+                  href="mailto:hello@eventeam.in"
                   className="hover:text-white transition-colors"
                 >
                   hello@eventeam.com

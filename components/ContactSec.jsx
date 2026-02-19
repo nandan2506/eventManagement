@@ -72,10 +72,10 @@ export default function ContactSec() {
                 title="Email Us"
               >
                 <a
-                  href="mailto:support@eventeam.com"
+                  href="mailto:hello@eventeam.in"
                   className="hover:text-white transition-colors"
                 >
-                  support@eventeam.com
+                  hello@eventeam.in
                 </a>
               </InfoItem>
 
