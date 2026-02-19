@@ -24,11 +24,12 @@ export default function Home() {
 
         <div className="relative z-10 max-w-4xl mx-auto">
           <h1 className="text-4xl md:text-7xl font-extrabold text-black mb-6 leading-tight">
-            Find Events <span className="text-brand">Near You</span>
+            Your Strategic Partner <span className="text-brand">in Event Excellence.</span>
           </h1>
           <p className="text-black mb-10 text-lg md:text-xl max-w-2xl mx-auto">
-            Book tickets for the hottest concerts, workshops, and meetups.
-            Experience the extraordinary.
+            Your Strategic Partner in Event Excellence.”
+            Subtext: End-to-end planning for corporate and large-scale productions.
+
           </p>
           <Link
             href="/#services"
