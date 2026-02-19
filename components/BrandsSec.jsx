@@ -4,9 +4,9 @@ import { brands } from '@/data/brands';
 
 // 1. Split the brands into 3 chunks for the 3 rows
 
-const row1 = brands.slice(0, 4);
-const row2 = brands.slice(0, 4);
-const row3 = brands.slice(0, 4);
+const row1 = brands.slice(0, 20);
+const row2 = brands.slice(0, 20);
+const row3 = brands.slice(0, 20);
 
 // 2. Helper Component for a single Marquee Row
 const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
@@ -28,7 +28,7 @@ const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
                 Example: <img src={`/logos/${brand}.png`} className="h-10 w-auto object-contain grayscale hover:grayscale-0" />
              */}
             {/* <span className="text-gray-400 font-bold text-xl">{brand}</span> */}
-            <img src={`/logos/${brand}.png`} className="h-10 w-auto object-contain " />
+            <img src={`/logos/${brand}`} className="h-10 w-auto object-contain " />
           </div>
         ))}
       </div>
@@ -76,13 +76,13 @@ export default function BrandsSec() {
           <div className="flex flex-col">
 
             {/* ROW 1: Moves Left */}
-            <MarqueeRow items={row1} direction="left" speed="40s" />
+            <MarqueeRow items={row1} direction="left" speed="60s" />
 
             {/* ROW 2: Moves Right */}
-            <MarqueeRow items={row2} direction="right" speed="45s" />
+            <MarqueeRow items={row2} direction="right" speed="65s" />
 
             {/* ROW 3: Moves Left */}
-            <MarqueeRow items={row3} direction="left" speed="50s" />
+            <MarqueeRow items={row3} direction="left" speed="60s" />
 
           </div>
 
