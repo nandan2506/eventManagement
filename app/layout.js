@@ -5,6 +5,9 @@ import './globals.css';
 export const metadata = {
   title: 'Eventeam',
   description: 'Book the best events near you',
+  icons: {
+    icon: "/icon.jpeg",
+  }
 };
 
 export default function RootLayout({ children }) {
