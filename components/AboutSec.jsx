@@ -23,9 +23,9 @@ export default function AboutSec() {
         {/* RIGHT SIDE: Image */}
         <div className="w-full md:w-1/2 min-h-[400px] relative">
           <img
-            src="/gallery/about.jpg"
-            alt="Event Engineering"
-            className="absolute inset-0 w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-700"
+            src="/gallery/profilePhoto.jpeg"
+            alt="Profile Photo"
+            className="absolute inset-0 w-full h-full object-cover"
           />
         </div>
       </section>
