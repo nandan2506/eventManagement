@@ -58,7 +58,7 @@ export default function Lightbox({ images, currentIndex, onClose, onNext, onPrev
 
       {/* Current Image Container */}
       <div
-        className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center px-10 bg-white/5 border border-white/10 hover:border-brand/50 hover:bg-white/10 rounded-xl justify-center transition-all duration-300"
+        className="relative max-w-5xl w-full max-h-[90vh] flex flex-col items-center px-10"
         onClick={(e) => e.stopPropagation()} 
       >
         <img
