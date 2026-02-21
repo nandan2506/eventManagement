@@ -4,9 +4,9 @@ import { brands } from '@/data/brands';
 
 // 1. Split the brands into 3 chunks for the 3 rows
 
-const row1 = brands.slice(0, 20);
-const row2 = brands.slice(0, 20);
-const row3 = brands.slice(0, 20);
+const row1 = brands.slice(0,7);
+const row2 = brands.slice(7, 13);
+const row3 = brands.slice(13, 20);
 
 // 2. Helper Component for a single Marquee Row
 const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
@@ -16,19 +16,19 @@ const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
          there is enough content to scroll infinitely without gaps.
       */}
       <div
-        className={`flex gap-6 py-4 w-max ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'} group-hover:[animation-play-state:paused]`}
+        className={`flex gap-10 py-4 w-max ${direction === 'left' ? 'animate-marquee-left' : 'animate-marquee-right'} group-hover:[animation-play-state:paused]`}
         style={{ animationDuration: speed }}
       >
         {[...items, ...items, ...items, ...items].map((brand, index) => (
           <div
             key={`${brand}-${index}`}
-            className="w-48 h-24 flex-shrink-0 bg-white/5 border border-white/10 hover:border-brand/50 hover:bg-white/10 rounded-xl flex items-center justify-center transition-all duration-300"
+            className="w-48 h-24 flex-shrink-0 rounded-xl flex items-center justify-center transition-all duration-300"
           >
             {/* PLACEHOLDER: Replace <span /> with <img /> when ready.
                 Example: <img src={`/logos/${brand}.png`} className="h-10 w-auto object-contain grayscale hover:grayscale-0" />
              */}
             {/* <span className="text-gray-400 font-bold text-xl">{brand}</span> */}
-            <img src={`/logos/${brand}`} className="h-10 w-auto object-contain " />
+            <img src={`/logos/${brand}`} className="h-24 w-auto object-contain " />
           </div>
         ))}
       </div>

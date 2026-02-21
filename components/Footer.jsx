@@ -1,5 +1,8 @@
 // components/Footer.jsx
+"use client"; // Added so we can use hooks
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
@@ -12,13 +15,13 @@ export default function Footer() {
           {/* Column 1: Brand & Bio */}
           <div className="space-y-6">
             {/* Logo */}
-            <Link href="/" className="block w-fit">
+            <FooterLink href="/#home" className="block w-fit">
               <img
                 src="/logo.jpeg"
                 alt="Eventeam Logo"
                 className="h-16 w-auto object-contain"
               />
-            </Link>
+            </FooterLink>
 
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
               Engineering experiences that leave lasting impressions. From concept to execution, we are your partners in creating the extraordinary.
@@ -49,29 +52,29 @@ export default function Footer() {
             </h3>
             <ul className="space-y-3 text-gray-400 text-sm font-medium">
               <li>
-                <Link href="/" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
+                <FooterLink href="/#home" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
                   Home
-                </Link>
+                </FooterLink>
               </li>
               <li>
-                <Link href="/#about" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
+                <FooterLink href="/#about" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
                   About Us
-                </Link>
+                </FooterLink>
               </li>
               <li>
-                <Link href="/#services" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
+                <FooterLink href="/#services" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
                   Services
-                </Link>
+                </FooterLink>
               </li>
               <li>
-                <Link href="/gallery" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
+                <FooterLink href="/gallery" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
                   Gallery
-                </Link>
+                </FooterLink>
               </li>
               <li>
-                <Link href="/#contact" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
+                <FooterLink href="/#contact" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
                   Contact
-                </Link>
+                </FooterLink>
               </li>
             </ul>
           </div>
@@ -84,7 +87,6 @@ export default function Footer() {
             <ul className="space-y-5 text-gray-400 text-sm">
               <li className="flex items-start group">
                 <span className="text-brand mr-3 mt-1 group-hover:scale-110 transition-transform">
-                  {/* Location Icon */}
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                       d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z">
@@ -102,7 +104,6 @@ export default function Footer() {
 
               <li className="flex items-center group">
                 <span className="text-brand mr-3 group-hover:scale-110 transition-transform">
-                  {/* Email Icon */}
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                       d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z">
@@ -119,7 +120,6 @@ export default function Footer() {
 
               <li className="flex items-center group">
                 <span className="text-brand mr-3 group-hover:scale-110 transition-transform">
-                  {/* Phone Icon */}
                   <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2"
                       d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z">
@@ -154,6 +154,36 @@ export default function Footer() {
   );
 }
 
+// Reusable Scroll-Aware Link Component
+function FooterLink({ href, children, className }) {
+  const pathname = usePathname();
+
+  const handleScroll = (e) => {
+    // Check if we are on the home page and clicking a hash link
+    if (pathname === "/" && href.startsWith("/#")) {
+      e.preventDefault();
+      const targetId = href.replace("/#", "");
+
+      if (targetId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.pushState(null, "", "/");
+      } else {
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", `/#${targetId}`);
+        }
+      }
+    }
+  };
+
+  return (
+    <Link href={href} onClick={handleScroll} className={className}>
+      {children}
+    </Link>
+  );
+}
+
 // Reusable Social Icon Component
 function SocialIcon({ href, label, children }) {
   return (
@@ -162,8 +192,7 @@ function SocialIcon({ href, label, children }) {
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}
-      className="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center 
-                 hover:bg-brand hover:text-black transition-all duration-300"
+      className="w-9 h-9 rounded-full bg-gray-800 flex items-center justify-center hover:bg-brand hover:text-black transition-all duration-300"
     >
       {children}
     </a>

@@ -3,6 +3,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation"; // 1. IMPORT USEPATHNAME
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
@@ -25,7 +26,7 @@ export default function Navbar() {
 
           {/* CENTER: Desktop Links */}
           <div className="hidden md:flex space-x-10 items-center">
-            <NavLink href="/">Home</NavLink>
+            <NavLink href="/#home">Home</NavLink>
             <NavLink href="/#about">About</NavLink>
             <NavLink href="/#services">Services</NavLink>
             <NavLink href="/#brands">Brands</NavLink>
@@ -34,12 +35,9 @@ export default function Navbar() {
 
           {/* RIGHT: Call to Action */}
           <div className="hidden md:flex items-center">
-            <Link
-              href="/#contact"
-              className="bg-brand hover:bg-brand-dark text-black font-bold py-2.5 px-6 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-brand/20 active:scale-95"
-            >
+            <NavLink href="/#contact" isButton>
               Contact us
-            </Link>
+            </NavLink>
           </div>
 
           {/* MOBILE MENU BUTTON */}
@@ -50,7 +48,6 @@ export default function Navbar() {
               aria-expanded={isOpen}
             >
               <span className="sr-only">Open main menu</span>
-              {/* Hamburger Icon with Animation */}
               <div className="relative w-6 h-6">
                 <span
                   className={`absolute block h-0.5 w-6 bg-current transform transition duration-300 ease-in-out ${
@@ -80,7 +77,7 @@ export default function Navbar() {
         }`}
       >
         <div className="px-4 pt-4 pb-6 space-y-2 shadow-inner">
-          <MobileNavLink href="/" onClick={() => setIsOpen(false)}>
+          <MobileNavLink href="/#home" onClick={() => setIsOpen(false)}>
             Home
           </MobileNavLink>
           <MobileNavLink href="/#about" onClick={() => setIsOpen(false)}>
@@ -97,13 +94,9 @@ export default function Navbar() {
           </MobileNavLink>
 
           <div className="pt-6 pb-2">
-            <Link
-              href="/#contact"
-              onClick={() => setIsOpen(false)}
-              className="block w-full text-center bg-brand text-black font-bold py-3 rounded-lg shadow-md hover:bg-brand-dark transition-colors"
-            >
+            <MobileNavLink href="/#contact" onClick={() => setIsOpen(false)} isButton>
               Contact Us
-            </Link>
+            </MobileNavLink>
           </div>
         </div>
       </div>
@@ -111,11 +104,47 @@ export default function Navbar() {
   );
 }
 
-// Helper: Desktop Link
-function NavLink({ href, children }) {
+// 2. UPDATED DESKTOP LINK HELPER
+function NavLink({ href, children, isButton }) {
+  const pathname = usePathname();
+
+  const handleScroll = (e) => {
+    // If we are already on the home page and clicking a hash link
+    if (pathname === "/" && href.startsWith("/#")) {
+      e.preventDefault();
+      const targetId = href.replace("/#", "");
+
+      // If clicking home, scroll to absolute top
+      if (targetId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.pushState(null, "", "/"); // Keeps URL clean
+      } else {
+        // Otherwise, scroll to the specific section ID
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", `/#${targetId}`);
+        }
+      }
+    }
+  };
+
+  if (isButton) {
+    return (
+      <Link
+        href={href}
+        onClick={handleScroll}
+        className="bg-brand hover:bg-brand-dark text-black font-bold py-2.5 px-6 rounded-full transition-all transform hover:scale-105 shadow-lg shadow-brand/20 active:scale-95"
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <Link
       href={href}
+      onClick={handleScroll}
       className="group relative px-1 py-2 text-sm font-semibold uppercase tracking-wider text-gray-600 transition-colors duration-300 hover:text-brand"
     >
       {children}
@@ -124,12 +153,47 @@ function NavLink({ href, children }) {
   );
 }
 
-// Helper: Mobile Link
-function MobileNavLink({ href, children, onClick }) {
+// 3. UPDATED MOBILE LINK HELPER
+function MobileNavLink({ href, children, onClick, isButton }) {
+  const pathname = usePathname();
+
+  const handleScroll = (e) => {
+    if (pathname === "/" && href.startsWith("/#")) {
+      e.preventDefault();
+      const targetId = href.replace("/#", "");
+
+      if (targetId === "home") {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+        window.history.pushState(null, "", "/");
+      } else {
+        const elem = document.getElementById(targetId);
+        if (elem) {
+          elem.scrollIntoView({ behavior: "smooth" });
+          window.history.pushState(null, "", `/#${targetId}`);
+        }
+      }
+    }
+    
+    // Always close the mobile menu after clicking
+    if (onClick) onClick();
+  };
+
+  if (isButton) {
+    return (
+      <Link
+        href={href}
+        onClick={handleScroll}
+        className="block w-full text-center bg-brand text-black font-bold py-3 rounded-lg shadow-md hover:bg-brand-dark transition-colors"
+      >
+        {children}
+      </Link>
+    );
+  }
+
   return (
     <Link
       href={href}
-      onClick={onClick}
+      onClick={handleScroll}
       className="block px-3 py-3 rounded-md text-base font-medium text-gray-600 hover:text-brand hover:bg-gray-50 border-l-4 border-transparent hover:border-brand transition-all"
     >
       {children}

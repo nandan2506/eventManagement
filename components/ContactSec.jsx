@@ -85,8 +85,8 @@ export default function ContactSec() {
 
             <div className="space-y-8">
               <InfoItem icon={<FaMapMarkerAlt />} title="Our Office">
-                B-102, C-58/22, Flex Apartment <br />
-                Sector 62 Noida, Uttar Pradesh - 201309
+                C-58/22, Sector 62 Noida, <br />
+                 Uttar Pradesh - 201309
               </InfoItem>
 
               <InfoItem icon={<FaEnvelope />} title="Email Us">
@@ -159,7 +159,7 @@ export default function ContactSec() {
                   label="Your Name"
                   name="name"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="Rahul"
                   required
                   value={formData.name}
                   onChange={handleChange}
@@ -168,7 +168,7 @@ export default function ContactSec() {
                   label="Email Address"
                   name="email"
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder="rahul@example.com"
                   required
                   value={formData.email}
                   onChange={handleChange}
