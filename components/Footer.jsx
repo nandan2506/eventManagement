@@ -97,8 +97,8 @@ export default function Footer() {
                   </svg>
                 </span>
                 <span>
-                  B-102, C-58/22, Flex Apartment, <br />
-                  Sector 62 Noida, Uttar Pradesh - 201309
+                  C-58/22, Sector 62 Noida,  <br />
+                  Uttar Pradesh - 201309
                 </span>
               </li>
 

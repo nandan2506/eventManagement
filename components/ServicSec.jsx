@@ -18,8 +18,7 @@ export default function ServicSec() {
           </div>
 
           {/* DESKTOP TIMELINE VISUALIZATION (Hidden on mobile) */}
-          <div className="hidden md:flex flex-row justify-between items-end relative h-[400px] w-full pt-10">
-            {/* The Horizontal Axis Line */}
+          <div className="hidden md:flex flex-row justify-between items-end relative h-[300px] w-full pt-10">
             <div className="absolute bottom-10 left-0 w-full h-[2px] bg-black">
               <div className="absolute right-0 -top-1.5 w-0 h-0 border-t-[6px] border-t-transparent border-l-[12px] border-l-black border-b-[6px] border-b-transparent"></div>
             </div>
@@ -32,11 +31,8 @@ export default function ServicSec() {
                   Campaigns.
                 </p>
               </div>
-              {/* Dotted Line */}
               <div className="h-24 border-l-2 border-dashed border-black mx-auto"></div>
-              {/* Dot on Axis */}
               <div className="w-3 h-3 bg-black rounded-full mx-auto -mb-1.5 relative z-10"></div>
-              {/* Label */}
               <p className="mt-6 text-[#002B5C] font-bold text-sm text-center h-10">
                 BTL & <br /> Activation
               </p>
@@ -44,8 +40,6 @@ export default function ServicSec() {
 
             {/* Service 2 */}
             <div className="flex flex-col justify-end h-full w-1/5 group relative pb-12">
-              {" "}
-              {/* pb-12 pushes it up for staggered look */}
               <div className="mb-4 bg-black p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform">
                 <p className="text-brand font-bold text-sm leading-snug">
                   MICE, Annual Days, Conferences, and Festival Event Production.
@@ -71,6 +65,7 @@ export default function ServicSec() {
                 Digital <br /> Marketing
               </p>
             </div>
+
             {/* Service 4 */}
             <div className="flex flex-col justify-end h-full w-1/5 group relative">
               <div className="mb-4 bg-black p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform">
@@ -84,7 +79,6 @@ export default function ServicSec() {
                 Corporate <br /> Events
               </p>
             </div>
-
 
             {/* Service 5 */}
             <div className="flex flex-col justify-end h-full w-1/5 group relative">
@@ -101,7 +95,7 @@ export default function ServicSec() {
             </div>
           </div>
 
-          {/* MOBILE LIST (Visible only on mobile) */}
+          {/* MOBILE LIST */}
           <div className="md:hidden space-y-6">
             <MobileServiceItem
               title="BTL & Activation"
@@ -119,7 +113,6 @@ export default function ServicSec() {
               title="Corporate Events"
               desc="MICE, Annual Days, Conferences, and Festival Event Production."
             />
-
             <MobileServiceItem
               title="Corporate Gifting"
               desc="Luxury Gift Boxes, Eco-Friendly Gifts, and Branded Stationery."
@@ -127,12 +120,12 @@ export default function ServicSec() {
           </div>
         </div>
 
-        {/* RIGHT SIDE: Image */}
-        <div className="w-full lg:w-2/5 relative min-h-[400px]">
+        {/* RIGHT SIDE: Image (FIXED) */}
+        <div className="w-full lg:w-2/5 min-h-[00px] flex items-center justify-center p-6">
           <img
-            src="/gallery/levis.jpg" // Ensure you save the image as levi.jpg or update this path
+            src="/gallery/levis.jpg"
             alt="Levis Event"
-            className="absolute inset-0 w-full h-full object-cover"
+            className="w-full h-full max-h-[80vh] object-contain lg:mt-[135px]"
           />
         </div>
       </section>
