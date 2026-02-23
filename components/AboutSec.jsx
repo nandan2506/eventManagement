@@ -35,11 +35,6 @@ export default function AboutSec() {
             and executed with precision — from concept to completion.
           </p>
 
-          {/* CTA (optional but great UX) */}
-          <button className="mt-8 inline-flex items-center gap-2 rounded-full bg-brand px-6 py-3 text-[#002B5C] font-semibold hover:scale-105 transition-transform">
-            Learn More
-            <span className="text-xl">→</span>
-          </button>
         </div>
       </div>
     </section>
