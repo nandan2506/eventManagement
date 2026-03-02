@@ -12,15 +12,16 @@ import {
 } from "react-icons/fa";
 
 export default function ContactSec() {
+  // 1. Fixed Initial State for proper dropdown validation
   const [formData, setFormData] = useState({
     name: "",
     email: "",
     companyName: "",
     contactNumber: "",
-    typeOfEvent: "MICE",
+    typeOfEvent: "", // Empty string forces the user to choose a valid option
     eventLocation: "",
     eventDate: "",
-    budgetRange: "10,000 - 30,000",
+    budgetRange: "", // Empty string forces the user to choose a valid option
   });
 
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -45,9 +46,17 @@ export default function ContactSec() {
       if (!res.ok) throw new Error("Something went wrong.");
 
       setIsSubmitted(true);
+
+      // Reset to empty strings after submission
       setFormData({
-        name: "", email: "", companyName: "", contactNumber: "",
-        typeOfEvent: "MICE", eventLocation: "", eventDate: "", budgetRange: "10,000 - 30,000"
+        name: "",
+        email: "",
+        companyName: "",
+        contactNumber: "",
+        typeOfEvent: "",
+        eventLocation: "",
+        eventDate: "",
+        budgetRange: "",
       });
       setTimeout(() => setIsSubmitted(false), 5000);
     } catch (err) {
@@ -70,17 +79,16 @@ export default function ContactSec() {
             Get in <span className="text-brand">Touch</span>
           </h1>
           <p className="mt-4 text-lg text-slate-600 max-w-2xl mx-auto">
-            Ready to bring your vision to life? Fill out the form below and our team will get back to you within 24 hours.
+            Ready to bring your vision to life? Fill out the form below and our
+            team will get back to you within 24 hours.
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-12 shadow-2xl rounded-3xl overflow-hidden bg-white">
-          
-          {/* LEFT SIDE - CONTACT INFO (4 Cols) */}
+          {/* LEFT SIDE - CONTACT INFO */}
           <div className="lg:col-span-4 bg-black text-white p-8 md:p-12 flex flex-col justify-between relative overflow-hidden">
-            {/* Abstract Background Element */}
             <div className="absolute top-0 right-0 -mr-16 -mt-16 w-64 h-64 bg-brand rounded-full opacity-10 blur-3xl pointer-events-none"></div>
-            
+
             <div className="relative z-10">
               <h2 className="text-2xl font-bold mb-10 border-b border-white/10 pb-4">
                 Contact Information
@@ -93,13 +101,19 @@ export default function ContactSec() {
                 </InfoItem>
 
                 <InfoItem icon={<FaEnvelope />} title="Email Us">
-                  <a href="mailto:hello@eventeam.in" className="hover:text-brand transition-colors">
+                  <a
+                    href="mailto:hello@eventeam.in"
+                    className="hover:text-brand transition-colors"
+                  >
                     hello@eventeam.in
                   </a>
                 </InfoItem>
 
                 <InfoItem icon={<FaPhoneAlt />} title="Call Us">
-                  <a href="tel:+919971783925" className="hover:text-brand transition-colors">
+                  <a
+                    href="tel:+919971783925"
+                    className="hover:text-brand transition-colors"
+                  >
                     +91 99717 83925
                   </a>
                 </InfoItem>
@@ -107,32 +121,43 @@ export default function ContactSec() {
             </div>
 
             <div className="mt-16 relative z-10">
-              <h3 className="text-sm font-semibold uppercase tracking-widest mb-6 text-brand">Follow Our Journey</h3>
+              <h3 className="text-sm font-semibold uppercase tracking-widest mb-6 text-brand">
+                Follow Our Journey
+              </h3>
               <div className="flex space-x-4">
-                <SocialIcon href="https://www.instagram.com/eventeam.india" label="Instagram">
+                <SocialIcon
+                  href="https://www.instagram.com/eventeam.india"
+                  label="Instagram"
+                >
                   <FaInstagram />
                 </SocialIcon>
-                <SocialIcon href="https://www.facebook.com/share/1DLg5VUuQh/" label="Facebook">
+                <SocialIcon
+                  href="https://www.facebook.com/share/1DLg5VUuQh/"
+                  label="Facebook"
+                >
                   <FaFacebookF />
                 </SocialIcon>
               </div>
             </div>
           </div>
 
-          {/* RIGHT SIDE - FORM (8 Cols) */}
+          {/* RIGHT SIDE - FORM */}
           <div className="lg:col-span-8 p-8 md:p-14 bg-white">
             {isSubmitted ? (
               <div className="h-full flex flex-col items-center justify-center text-center py-20 animate-in fade-in zoom-in duration-500">
                 <div className="w-20 h-20 bg-green-100 text-green-600 rounded-full flex items-center justify-center mb-6 text-4xl">
                   <FaCheckCircle />
                 </div>
-                <h3 className="text-3xl font-bold text-slate-900">Message Sent!</h3>
+                <h3 className="text-3xl font-bold text-slate-900">
+                  Message Sent!
+                </h3>
                 <p className="text-slate-500 mt-4 text-lg">
-                  Thank you for reaching out. We've received your inquiry and will contact you shortly.
+                  Thank you for reaching out. We have received your inquiry and
+                  will contact you shortly.
                 </p>
-                <button 
-                   onClick={() => setIsSubmitted(false)}
-                   className="mt-8 text-brand font-semibold hover:underline"
+                <button
+                  onClick={() => setIsSubmitted(false)}
+                  className="mt-8 text-brand font-semibold hover:underline"
                 >
                   Send another message
                 </button>
@@ -148,14 +173,50 @@ export default function ContactSec() {
                 {/* Section 1: Basic Details */}
                 <section>
                   <div className="flex items-center space-x-4 mb-6">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand/10 text-brand font-bold text-sm">1</span>
-                    <h2 className="text-xl font-bold text-slate-900">Basic Details</h2>
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand/10 text-brand font-bold text-sm">
+                      1
+                    </span>
+                    <h2 className="text-xl font-bold text-slate-900">
+                      Basic Details
+                    </h2>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-                    <InputField label="Full Name" name="name" type="text" placeholder="Rahul" required value={formData.name} onChange={handleChange} />
-                    <InputField label="Email Address" name="email" type="email" placeholder="rahul@example.com" required value={formData.email} onChange={handleChange} />
-                    <InputField label="Company Name" name="companyName" type="text" placeholder="Acme Corp" required value={formData.companyName} onChange={handleChange} />
-                    <InputField label="Contact Number" name="contactNumber" type="tel" placeholder="+91 00000 11111" required value={formData.contactNumber} onChange={handleChange} />
+                    <InputField
+                      label="Full Name"
+                      name="name"
+                      type="text"
+                      placeholder="Rahul"
+                      required
+                      value={formData.name}
+                      onChange={handleChange}
+                    />
+                    <InputField
+                      label="Email Address"
+                      name="email"
+                      type="email"
+                      placeholder="rahul@example.com"
+                      required
+                      value={formData.email}
+                      onChange={handleChange}
+                    />
+                    {/* Optional Field: No 'required' prop passed */}
+                    <InputField
+                      label="Company Name (Optional)"
+                      name="companyName"
+                      type="text"
+                      placeholder="Acme Corp"
+                      value={formData.companyName}
+                      onChange={handleChange}
+                    />
+                    <InputField
+                      label="Contact Number"
+                      name="contactNumber"
+                      type="tel"
+                      placeholder="+91 00000 11111"
+                      required
+                      value={formData.contactNumber}
+                      onChange={handleChange}
+                    />
                   </div>
                 </section>
 
@@ -164,25 +225,62 @@ export default function ContactSec() {
                 {/* Section 2: Project Details */}
                 <section>
                   <div className="flex items-center space-x-4 mb-6">
-                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand/10 text-brand font-bold text-sm">2</span>
-                    <h2 className="text-xl font-bold text-slate-900">Project Details</h2>
+                    <span className="flex items-center justify-center w-8 h-8 rounded-full bg-brand/10 text-brand font-bold text-sm">
+                      2
+                    </span>
+                    <h2 className="text-xl font-bold text-slate-900">
+                      Project Details
+                    </h2>
                   </div>
                   <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-5">
-                    <SelectField 
-                      label="Type of Event" 
-                      name="typeOfEvent" 
-                      value={formData.typeOfEvent} 
+                    {/* Updated Selects with Placeholders */}
+                    <SelectField
+                      label="Type of Event"
+                      name="typeOfEvent"
+                      value={formData.typeOfEvent}
                       onChange={handleChange}
-                      options={["MICE", "Product Launch", "Conference", "Dealer Meet", "Exhibition", "Fashion Show", "Other"]}
+                      required
+                      placeholder="Select Event Type"
+                      options={[
+                        "MICE",
+                        "Product Launch",
+                        "Conference",
+                        "Dealer Meet",
+                        "Exhibition",
+                        "Fashion Show",
+                        "Other",
+                      ]}
                     />
-                    <InputField label="Event Location" name="eventLocation" type="text" placeholder="City or Venue Name" value={formData.eventLocation} onChange={handleChange} />
-                    <InputField label="Expected Date" name="eventDate" type="date" value={formData.eventDate} onChange={handleChange} />
-                    <SelectField 
-                      label="Estimated Budget (INR)" 
-                      name="budgetRange" 
-                      value={formData.budgetRange} 
+                    <InputField
+                      label="Event Location"
+                      name="eventLocation"
+                      type="text"
+                      placeholder="City or Venue Name"
+                      required
+                      value={formData.eventLocation}
                       onChange={handleChange}
-                      options={["10,000 - 30,000", "30,000 - 50,000", "50,000 - 1,00,000", "1,00,000+"]}
+                    />
+                    <InputField
+                      label="Tentative Event Date"
+                      name="eventDate"
+                      type="date"
+                      required
+                      value={formData.eventDate}
+                      onChange={handleChange}
+                    />
+                    <SelectField
+                      label="Estimated Budget (INR)"
+                      name="budgetRange"
+                      value={formData.budgetRange}
+                      onChange={handleChange}
+                      required
+                      placeholder="Select Budget Range"
+                      options={[
+                        "10,000 - 30,000",
+                        "30,000 - 50,000",
+                        "50,000 - 1,00,000",
+                        "1,00,000+",
+                      ]}
                     />
                   </div>
                 </section>
@@ -194,10 +292,30 @@ export default function ContactSec() {
                 >
                   {isLoading ? (
                     <span className="flex items-center">
-                       <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" fill="none" viewBox="0 0 24 24"><circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle><path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path></svg>
-                       Processing...
+                      <svg
+                        className="animate-spin -ml-1 mr-3 h-5 w-5 text-white"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
+                      </svg>
+                      Processing...
                     </span>
-                  ) : "Connect With Eventeam"}
+                  ) : (
+                    "Connect With Eventeam"
+                  )}
                 </button>
               </form>
             )}
@@ -238,33 +356,49 @@ function SocialIcon({ href, label, children }) {
   );
 }
 
-function InputField({ label, ...props }) {
+function InputField({ label, required, ...props }) {
   return (
     <div className="w-full">
       <label className="block text-sm font-semibold text-slate-700 mb-2 ml-1">
         {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
       </label>
       <input
         {...props}
+        required={required}
         className="w-full px-4 py-3.5 rounded-xl bg-slate-50 text-slate-900 placeholder-slate-400 border border-slate-200 focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all"
       />
     </div>
   );
 }
 
-function SelectField({ label, options, ...props }) {
+function SelectField({ label, options, required, placeholder, ...props }) {
   return (
     <div className="w-full">
       <label className="block text-sm font-semibold text-slate-700 mb-2 ml-1">
         {label}
+        {required && <span className="text-red-500 ml-1">*</span>}
       </label>
       <select
         {...props}
-        className="w-full px-4 py-3.5 rounded-xl bg-slate-50 text-slate-900 border border-slate-200 focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all appearance-none cursor-pointer"
-        style={{ backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-line-cap='round' stroke-line-join='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`, backgroundRepeat: 'no-repeat', backgroundPosition: 'right 1rem center', backgroundSize: '1.5em' }}
+        required={required}
+        // Added invalid:text-slate-400 so the placeholder text looks grayed out
+        className="w-full px-4 py-3.5 rounded-xl bg-slate-50 text-slate-900 border border-slate-200 focus:border-brand focus:ring-4 focus:ring-brand/10 outline-none transition-all appearance-none cursor-pointer invalid:text-slate-400"
+        style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 24 24' stroke='currentColor'%3E%3Cpath stroke-line-cap='round' stroke-line-join='round' stroke-width='2' d='M19 9l-7 7-7-7'%3E%3C/path%3E%3C/svg%3E")`,
+          backgroundRepeat: "no-repeat",
+          backgroundPosition: "right 1rem center",
+          backgroundSize: "1.5em",
+        }}
       >
+        {/* Placeholder logic mapped here */}
+        <option value="" disabled>
+          {placeholder || "Select an option"}
+        </option>
         {options.map((opt) => (
-          <option key={opt} value={opt}>{opt}</option>
+          <option key={opt} value={opt} className="text-slate-900">
+            {opt}
+          </option>
         ))}
       </select>
     </div>
