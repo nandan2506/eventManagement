@@ -24,15 +24,15 @@ const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
             key={`${brand}-${index}`}
             className="
               flex-shrink-0 flex items-center justify-center
-              w-28 h-14          /* mobile */
-              md:w-48 md:h-24   /* laptop (unchanged) */
+              w-28 h-14         
+              md:w-48 md:h-24   
             "
           >
             <img
               src={`/logos/${brand}`}
               alt={brand.replace(".png", "")}
               className="
-                max-h-8 md:max-h-full   /* mobile fix, desktop same as before */
+                max-h-8 md:max-h-full   
                 w-auto object-contain
                 opacity-80 hover:opacity-100
                 transition-all duration-300
