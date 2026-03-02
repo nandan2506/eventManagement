@@ -1,6 +1,6 @@
 export const brands = [
-  "apple.png", "sony.png", "paytm.png", "Mg.png", "infinix.png", "tecno.png" ,
+ "Hero.png", "panasonic.png", "sony.png", "paytm.png",  "infinix.png", "tecno.png" ,
   "ucb.png","Truflo.png", "nhrd.png", "wattpower.png",'visit.png',
-  "innisfrer.png",  "panasonic.png", "vivo.png", 
-  "JBL.png", "volvo.png","Hero.png", "levis.png"
+  "innisfrer.png", "Mg.png", "vivo.png", 
+  "JBL.png", "apple.png", "volvo.png", "levis.png"
 ];

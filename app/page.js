@@ -24,17 +24,17 @@ export default function Home() {
       </section>
 
       {/* Vision & Mission Section */}
-      <section id="vision" className="scroll-mt-20">
+      <section id="vision" className="scroll-mt-20 mt-20">
         <VisionSec />
       </section>
 
       {/* Core Service Pillars Section */}
-      <section id="services" className="scroll-mt-20">
+      <section id="services" className="scroll-mt-20 mt-20">
         <ServicSec />
       </section>
 
       {/* Strategic Event Management Section */}
-      <section id="strategic" className="scroll-mt-20">
+      <section id="strategic" className="scroll-mt-20 mt-20">
         <StretigicSec />
       </section>
 
@@ -44,7 +44,7 @@ export default function Home() {
       </section>
 
       {/* Brand Association Section */}
-      <section id="brands" className="scroll-mt-20">
+      <section id="brands" className="scroll-mt-20 mt-20">
         <BrandsSec />
       </section>
 
