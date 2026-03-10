@@ -17,7 +17,7 @@ export default function Navbar() {
           <div className="flex-shrink-0 flex items-center cursor-pointer">
             <Link href="/">
               <img
-                src="/logo.PNG"
+                src="/logo.png"
                 alt="Eventeam Logo"
                 className="h-12 w-auto object-contain"
               />
