@@ -17,7 +17,7 @@ export default function Footer() {
             {/* Logo */}
             <FooterLink href="/#home" className="block w-fit">
               <img
-                src="/logo.PNG"
+                src="/logo.png"
                 alt="Eventeam Logo"
                 className="h-12 w-auto object-contain"
               />
