@@ -12,7 +12,7 @@ export default function VideoSec() {
             muted 
             playsInline
           >
-            <source src="/gallery/vid.mp4" type="video/mp4" />
+            <source src="/gallery/vid.MOV" type="video/mp4" />
           </video>
 
           {/* Dark Gradient Overlay for readability */}
@@ -20,12 +20,12 @@ export default function VideoSec() {
 
           {/* Floating Text Overlay */}
           <div className="absolute bottom-12 left-6 md:left-16 z-10 transform translate-y-2 group-hover:translate-y-0 transition-transform duration-500">
-             <span className="bg-brand text-[#002B5C] px-3 py-1 font-bold tracking-widest uppercase text-xs rounded mb-3 inline-block">
+             {/* <span className="bg-brand text-[#002B5C] px-3 py-1 font-bold tracking-widest uppercase text-xs rounded mb-3 inline-block">
                 Vibe Check
              </span>
              <h2 className="text-4xl md:text-5xl font-bold text-white drop-shadow-lg">
                 Live the Moment
-             </h2>
+             </h2> */}
           </div>
         </div>
       </section>
