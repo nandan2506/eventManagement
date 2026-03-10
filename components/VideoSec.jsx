@@ -12,7 +12,7 @@ export default function VideoSec() {
             muted 
             playsInline
           >
-            <source src="/gallery/vid.MOV" type="video/mp4" />
+            <source src="/gallery/vid.mov" type="video/mp4" />
           </video>
 
           {/* Dark Gradient Overlay for readability */}
