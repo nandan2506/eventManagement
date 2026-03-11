@@ -3,8 +3,8 @@ import React from 'react'
 export default function VideoSec() {
   return (
     <div>
-      <section className="relative w-full bg-black overflow-hidden group">
-        <div className="w-full h-[500px] md:h-[650px] relative">
+      <section className="relativew-full bg-black overflow-hidden group">
+        <div className="w-full h-auto md:h-[650px] relative">
           <video 
             className="w-full h-full object-cover opacity-90" 
             autoPlay 
