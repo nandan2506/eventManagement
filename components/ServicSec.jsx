@@ -41,7 +41,7 @@ export default function ServicSec() {
 
           {/* Service 1 */}
           <div className="flex flex-col justify-end h-full w-1/5 group relative">
-            <div className="mb-4 bg-black p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
+            <div className="mb-4 bg-[#002B5C] p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
               <p className="text-brand font-bold text-sm leading-snug">
                 Trade Shows, Product Launches, Exhibitions, and Sampling Campaigns.
               </p>
@@ -55,7 +55,7 @@ export default function ServicSec() {
 
           {/* Service 2 */}
           <div className="flex flex-col justify-end h-full w-1/5 group relative pb-12">
-            <div className="mb-4 bg-black p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
+            <div className="mb-4 bg-[#002B5C] p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
               <p className="text-brand font-bold text-sm leading-snug">
                 MICE, Annual Days, Conferences, and Festival Event Production.
               </p>
@@ -69,7 +69,7 @@ export default function ServicSec() {
 
           {/* Service 3 */}
           <div className="flex flex-col justify-end h-full w-1/5 group relative pb-8">
-            <div className="mb-4 bg-black p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
+            <div className="mb-4 bg-[#002B5C] p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
               <p className="text-brand font-bold text-sm leading-snug">
                 Social Media Campaigns, Influencer Marketing, SEO, Strategy.
               </p>
@@ -83,7 +83,7 @@ export default function ServicSec() {
 
           {/* Service 4 */}
           <div className="flex flex-col justify-end h-full w-1/5 group relative">
-            <div className="mb-4 bg-black p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
+            <div className="mb-4 bg-[#002B5C] p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
               <p className="text-brand font-bold text-sm leading-snug">
                 Mall Promotions, Outdoor Advertising, Pop-Up Experiences.
               </p>
@@ -97,7 +97,7 @@ export default function ServicSec() {
 
           {/* Service 5 */}
           <div className="flex flex-col justify-end h-full w-1/5 group relative">
-            <div className="mb-4 bg-black p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
+            <div className="mb-4 bg-[#002B5C] p-3 shadow-[4px_4px_0px_rgba(0,0,0,0.2)] transform group-hover:-translate-y-2 transition-transform duration-300">
               <p className="text-brand font-bold text-sm leading-snug">
                 Luxury Gift Boxes, Eco-Friendly Gifts, and Branded Stationery.
               </p>
@@ -136,7 +136,7 @@ export default function ServicSec() {
       </div>
 
       {/* RIGHT SIDE */}
-      <div className="w-full lg:w-2/5 flex items-center justify-center p-8 lg:p-12">
+      <div className="w-full hidden  lg:w-2/5 md:flex items-center justify-center p-8 lg:p-12">
         
         {/* Floating Card Wrapper */}
         <div className="relative w-full max-w-md lg:max-w-lg h-[400px] lg:h-[600px] rounded-3xl overflow-hidden shadow-[0_30px_60px_rgba(0,43,92,0.3)] z-10 bg-[#002B5C] border-[6px] border-white">

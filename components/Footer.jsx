@@ -68,7 +68,7 @@ export default function Footer() {
               </li>
               <li>
                 <FooterLink href="/gallery" className="hover:text-brand hover:translate-x-1 inline-block transition-all duration-300">
-                  Gallery
+                  Portfolio
                 </FooterLink>
               </li>
               <li>

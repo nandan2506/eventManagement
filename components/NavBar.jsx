@@ -30,7 +30,7 @@ export default function Navbar() {
             <NavLink href="/#about">About</NavLink>
             <NavLink href="/#services">Services</NavLink>
             <NavLink href="/#brands">Brands</NavLink>
-            <NavLink href="/gallery">Gallery</NavLink>
+            <NavLink href="/gallery">Portfolio</NavLink>
           </div>
 
           {/* RIGHT: Call to Action */}
@@ -87,10 +87,10 @@ export default function Navbar() {
             Services
           </MobileNavLink>
           <MobileNavLink href="/#brands" onClick={() => setIsOpen(false)}>
-            Brands
+            Brands Association
           </MobileNavLink>
           <MobileNavLink href="/gallery" onClick={() => setIsOpen(false)}>
-            Gallery
+            Portfolio
           </MobileNavLink>
 
           <div className="pt-6 pb-2">
