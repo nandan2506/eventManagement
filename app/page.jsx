@@ -76,7 +76,7 @@ export default function Home() {
         <TrustedSec />
       </section>
       
-{/* 
+
       <section>
         <FeaturedSwiper 
           swiperFormattedImages={swiperFormattedImages} 
@@ -95,7 +95,7 @@ export default function Home() {
           onNext={handleNext}
           onPrev={handlePrev}
         />
-      </section> */}
+      </section>
 
       {/* Brand Association Section */}
       <section id="brands" className="scroll-mt-20 mt-20">

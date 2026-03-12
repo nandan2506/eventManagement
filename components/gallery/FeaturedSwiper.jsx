@@ -20,20 +20,21 @@ export default function FeaturedSwiper({ swiperFormattedImages, onImageClick }) 
       </div>
 
       <div className="w-full max-w-6xl mx-auto px-4">
+        {/* FIXED: Added .gallery-swiper in front of EVERY rule so it only affects this specific component */}
         <style dangerouslySetInnerHTML={{__html: `
-          .swiper-slide {
+          .gallery-swiper .swiper-slide {
             transition: all 0.5s ease;
             filter: blur(4px);
             opacity: 0.5;
             transform: scale(0.8);
           }
-          .swiper-slide-active {
+          .gallery-swiper .swiper-slide-active {
             filter: blur(0px) !important;
             opacity: 1 !important;
             transform: scale(1) !important;
             z-index: 10;
           }
-          .swiper-slide-active:hover {
+          .gallery-swiper .swiper-slide-active:hover {
             transform: scale(1.05) !important;
           }
         `}} />
@@ -57,28 +58,23 @@ export default function FeaturedSwiper({ swiperFormattedImages, onImageClick }) 
             slideShadows: false,
           }}
           modules={[EffectCoverflow, Autoplay]}
-          className="w-full py-10"
+          className="w-full py-10 gallery-swiper" // <-- This matches the CSS above
         >
           {swiperFormattedImages.map((item, index) => (
             <SwiperSlide
               key={index}
               onClick={() => onImageClick(swiperFormattedImages, index)}
-              className="!w-[300px] md:!w-[500px] !h-[300px] md:!h-[400px] relative rounded-2xl overflow-hidden border border-gray-800 cursor-pointer"
+              className="!w-[300px] md:!w-[500px] !h-[300px] md:!h-[400px] relative rounded-2xl overflow-hidden border border-gray-800 cursor-pointer group"
             >
               <img
                 src={item.src}
                 alt={item.title}
                 loading="lazy"
-                className="w-auto h-58 object-cover"
+                // FIXED: Changed h-58 to w-full h-full so the image covers the card properly
+                className="w-full h-full object-cover" 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-6 pointer-events-none">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                  {/* <span className="text-brand font-bold text-lg">
-                    #EventLife
-                  </span>
-                  <p className="text-gray-300 text-sm mt-1">
-                    Live the moment
-                  </p> */}
                 </div>
               </div>
             </SwiperSlide>
