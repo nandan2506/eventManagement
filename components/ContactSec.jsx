@@ -185,7 +185,7 @@ export default function ContactSec() {
                       label="Full Name"
                       name="name"
                       type="text"
-                      placeholder="Rahul"
+                      placeholder="Rahul Gupta"
                       required
                       value={formData.name}
                       onChange={handleChange}

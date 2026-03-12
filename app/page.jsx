@@ -83,10 +83,10 @@ export default function Home() {
           onImageClick={openLightbox} 
         />
         
-        <GalleryGrid 
+        {/* <GalleryGrid 
           allItems={galleryItems} 
           onImageClick={openLightbox} 
-        />
+        /> */}
         
         <Lightbox
           images={lightboxImages}
