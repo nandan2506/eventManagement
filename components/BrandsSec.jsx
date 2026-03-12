@@ -25,7 +25,7 @@ const MarqueeRow = ({ items, direction = "left", speed = "40s" }) => {
             className="
               flex-shrink-0 flex items-center justify-center
               w-28 h-14         
-              md:w-48 md:h-24   
+              md:w-35 md:h-14  
             "
           >
             <img

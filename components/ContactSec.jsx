@@ -201,7 +201,7 @@ export default function ContactSec() {
                     />
                     {/* Optional Field: No 'required' prop passed */}
                     <InputField
-                      label="Company Name (Optional)"
+                      label="Company Name"
                       name="companyName"
                       type="text"
                       placeholder="Acme Corp"
@@ -273,13 +273,12 @@ export default function ContactSec() {
                       name="budgetRange"
                       value={formData.budgetRange}
                       onChange={handleChange}
-                      required
+                      
                       placeholder="Select Budget Range"
                       options={[
-                        "10,000 - 30,000",
-                        "30,000 - 50,000",
-                        "50,000 - 1,00,000",
-                        "1,00,000+",
+                        "1L - 10L",
+                        "10L - 50L",
+                        "Above 50L",
                       ]}
                     />
                   </div>
@@ -314,7 +313,7 @@ export default function ContactSec() {
                       Processing...
                     </span>
                   ) : (
-                    "Connect With Eventeam"
+                    "CONNECT WITH EVENTEAM"
                   )}
                 </button>
               </form>

@@ -19,7 +19,7 @@ export default function Navbar() {
               <img
                 src="/logo.png"
                 alt="Eventeam Logo"
-                className="h-12 w-auto object-contain"
+                className="h-10 w-auto object-contain"
               />
             </Link>
           </div>

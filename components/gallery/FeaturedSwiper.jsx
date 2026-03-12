@@ -12,7 +12,7 @@ export default function FeaturedSwiper({ swiperFormattedImages, onImageClick }) 
     <section className="bg-black py-16 border-b border-gray-800 overflow-hidden">
       <div className="max-w-7xl mx-auto px-6 mb-8 text-center">
         <span className="text-brand font-bold tracking-widest uppercase text-xs">
-          Vibe Check
+          {/* Vibe Check */}
         </span>
         <h2 className="text-3xl font-bold text-white mt-2">
           Captured Moments
@@ -73,12 +73,12 @@ export default function FeaturedSwiper({ swiperFormattedImages, onImageClick }) 
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-transparent to-transparent flex items-end p-6 pointer-events-none">
                 <div className="transform translate-y-4 group-hover:translate-y-0 transition-transform">
-                  <span className="text-brand font-bold text-lg">
+                  {/* <span className="text-brand font-bold text-lg">
                     #EventLife
                   </span>
                   <p className="text-gray-300 text-sm mt-1">
                     Live the moment
-                  </p>
+                  </p> */}
                 </div>
               </div>
             </SwiperSlide>
