@@ -150,7 +150,7 @@ export default function BrandsSec() {
 
       {/* Rows */}
       <div className="flex flex-col gap-10">
-        <MarqueeRow items={row1} direction="left" speed="30s" />
+        <MarqueeRow items={row1} direction="left" speed="40s" />
         <MarqueeRow2 items={row2} direction="right" speed="40s" />
         <MarqueeRow3 items={row3} direction="left" speed="35s" />
       </div>

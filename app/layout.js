@@ -6,7 +6,7 @@ export const metadata = {
   title: 'Eventeam',
   description: 'Book the best events near you',
   icons: {
-    icon: "/icon.jpeg",
+    icon: "./logo.png",
   }
 };
 
