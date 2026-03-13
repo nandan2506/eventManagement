@@ -29,7 +29,7 @@ export default function Navbar() {
             <NavLink href="/#home">Home</NavLink>
             <NavLink href="/#about">About</NavLink>
             <NavLink href="/#services">Services</NavLink>
-            <NavLink href="/#brands">Brands Association</NavLink>
+            <NavLink href="/#brands">Brand Association</NavLink>
             <NavLink href="/gallery">Portfolio</NavLink>
           </div>
 
@@ -87,7 +87,7 @@ export default function Navbar() {
             Services
           </MobileNavLink>
           <MobileNavLink href="/#brands" onClick={() => setIsOpen(false)}>
-            Brands Association
+            Brand Association
           </MobileNavLink>
           <MobileNavLink href="/gallery" onClick={() => setIsOpen(false)}>
             Portfolio
